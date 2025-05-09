@@ -1,11 +1,8 @@
 import './styles/App.css';
+import Layout from './views/Layout';
 
 const App = () => {
-  return (
-    <>
-      <h1>Hello Todo App!</h1>
-    </>
-  );
+  return <Layout />;
 };
 
 export default App;
