@@ -7,7 +7,7 @@ import {
 } from 'react';
 import Input from './Input';
 import List from './List';
-import IconButton from './Button';
+import IconButton from './IconButton';
 
 export type Item = {
   id: string;
