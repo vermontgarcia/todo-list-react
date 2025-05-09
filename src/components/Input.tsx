@@ -9,12 +9,12 @@ interface InputProps {
 const Input = ({ value, onChange, onKeyDown }: InputProps) => {
   return (
     <label>
-      New Item
       <input
         type="text"
         value={value}
         onChange={onChange}
         onKeyDown={onKeyDown}
+        placeholder="Add Todo"
       />
     </label>
   );

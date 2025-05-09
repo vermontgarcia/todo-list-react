@@ -1,13 +1,15 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+  --background-color-dark: #333;
+  --mercury: #E2E8EB;
+  --text-color-dark: #000;
+  /* colors for svg */
+    --svg-primary: invert(100%) sepia(0%) saturate(232%) hue-rotate(50deg) brightness(113%) contrast(90%);
+    --svg-accent-2: invert(36%) sepia(6%) saturate(3647%) hue-rotate(130deg) brightness(101%) contrast(80%);
+  }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  /* height: 6em; */
+  /* padding: 1.5em; */
   will-change: filter;
   transition: filter 300ms;
 }
@@ -18,7 +20,208 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
+header {
+  background-color: var(--background-color-dark);
+  color: var(--mercury);
+}
+
+header>div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo-container {
+  display: flex;
+  margin: 0.5rem;
+}
+
+.logo-name-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 0.5rem;
+  color: var(--mercury);
+  padding: 5px;
+}
+
+.logo-name-container p:first-child {
+  font-size: 1.5rem;
+}
+
+.menu-btn {
+  color: var(--mercury);
+}
+
+/* Menu  */
+.menu {
+  overflow: hidden;
+  background-color: var(--background-color-dark);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 0;
+  transition: height 200ms ease-out;
+}
+
+.menu a {
+  float: left;
+  display: block;
+  color: var(--mercury);
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 100%;
+}
+
+.menu a:hover,
+.menu-btn a:hover {
+  background-color: var(--mercury);
+  color: var(--text-color-dark);
+  cursor: pointer;
+}
+
+.menu a.active {
+  background-color: var(--mercury);
+  color: var(--text-color-dark);
+}
+
+.menu-btn .menu-icon {
+  display: none;
+  padding: 0.3rem 0.5rem;
+  margin: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .menu-btn a.menu-icon {
+    float: right;
+    display: block;
+  }
+
+  .menu a {
+    display: none;
+    width: unset;
+  }
+
+  .menu.menu-open a {
+    float: none;
+    display: block;
+    text-align: left;
+    width: unset;
+  }
+
+  .menu.menu-open {
+    flex-direction: column;
+    opacity: 1;
+    height: 15rem;
+    transition: height 500ms ease-out, opacity 400ms ease-out;
+  }
+}
+
+body, #root {
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+}
+
+/* Main */
+main {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+  flex-grow: 1;
+}
+
+main ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem;
+}
+
+main ul li:nth-child(odd) {
+  background-color: var(--mercury);
+}
+
+main ul li label {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+main form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.25rem;
+  position: relative;
+}
+
+main form label, main form input {
+  display: block;
+  width: 100%;
+}
+
+main form label {
+  font-size: small;
+
+}
+
+main form i {
+  position: absolute;
+  bottom: 0.65rem;
+  right: 0.4rem;
+}
+
+main form input {
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--mercury);
+}
+
+main ul input[type="checkbox"] {
+  accent-color: var(--background-color-dark);
+  /* changes the checkmark and box color when checked */
+}
+
+main form i, main ul i {
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  background-color: var(--background-color-dark);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--mercury);
+  height: fit-content;
+}
+
+footer img {
+  height: 2.2rem;
+  width: 2.2rem;
+  padding: 0 5px;
+  filter: var(--svg-primary);
+}
+
+footer img:hover {
+  filter: var(--svg-accent-2);
+}
+
+footer .social-media {
+  margin: 1rem 0;
+}
+
+/* @keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -39,4 +242,43 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+
+
+@media screen and (min-width: 600px) {
+  .menu {
+    height: 3rem;
+  }
+
+  footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1rem 10%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header nav {
+    margin-right: 1rem;
+  }
+
+  header .menu a {
+    width: 10rem;
+  }
+
+  footer .social-media {
+    text-align: center;
+  }
+
+  footer div:last-child {
+    text-align: right;
+  }
 }

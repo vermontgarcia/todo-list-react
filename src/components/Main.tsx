@@ -78,7 +78,7 @@ const Main = () => {
 
   return (
     <main>
-      <section>
+      <div>
         <form>
           <Input
             value={input}
@@ -87,14 +87,14 @@ const Main = () => {
           />
           <IconButton icon="add" handleClick={handleAddTodo} />
         </form>
-      </section>
-      <section>
+      </div>
+      <div>
         <List
           list={list}
           toggleCompleted={toggleCompleted}
           deleteItem={deleteItem}
         />
-      </section>
+      </div>
     </main>
   );
 };
